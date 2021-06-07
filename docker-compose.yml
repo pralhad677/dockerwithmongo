@@ -3,17 +3,28 @@ services:
   app:
     container_name: docker-node-mongo
     restart: always
-    build: .
+    build: 
+      context: .
+      # dockerfile ma rakheko env lai kasari use garne aayena my lord
+      # args:
+      #   - GIT_TOKEN=$GIT_TOKEN
+      #   - DB_PWD=$DB_PWD
     ports: 
-      - '90:4000'
+      - '90:${PORT}'
     networks:
       - mybirdge 
     volumes: 
       # ya ni ra %cd% ni use grna sakxa for windows
       # for mac and linux use $(pwd)
-      - C:\Users\jacob\dockerwithmongo:/app 
+      # here ro after app specify container is only allowed to read so that from the conatiner we cant create or cahnge file and its content
+      - C:\Users\jacob\dockerwithmongo:/app:ro 
+      #  this is anonymous volum which persist only on conatiner and gets deleted when container is removed
+      - /app/node_modules  
     depends_on: 
-      - mongo    
+      - mongo
+    environment: 
+      #  ya nira portspecify grda dockerfile ma env ko through set ko PORT overrride hunxa
+      PORT : ${PORT}    
      
   mongo:
     container_name: mongo

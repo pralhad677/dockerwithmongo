@@ -26,6 +26,7 @@ exports.get=CatchAsync(async(req,res,next)=>{
         message:'success',
         allData,
         name:"mero naam jacob ryan ho",
-        age:23
+        age:23,
+        location:"ktm"
     })
 })

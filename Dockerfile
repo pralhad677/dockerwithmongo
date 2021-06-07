@@ -4,7 +4,9 @@ COPY package*.json ./
 
 RUN npm install
 COPY . .
-EXPOSE 4000
-ENV NODE_ENV development
+
+ENV NODE_ENV=development PORT=3453
+# use printenv to check environment in docker conatiner file system 
+EXPOSE $PORT
 CMD ["npm","start"]
 
