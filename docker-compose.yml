@@ -5,6 +5,8 @@ services:
     restart: always
     build: 
       context: .
+      args: 
+        NODE_ENV : production
       # dockerfile ma rakheko env lai kasari use garne aayena my lord
       # args:
       #   - GIT_TOKEN=$GIT_TOKEN

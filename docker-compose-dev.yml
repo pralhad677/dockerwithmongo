@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+    app:
+    #   container_name: node-prod
+    #   restart: always
+    #   build: 
+    #     context: .
+      volumes: 
+        - /app/node_modules 
+        - ./:/app:ro
+      environment: 
+        - NODE_ENV=development 
+        - PORT : ${PORT}  
+        # telle chai override grxa dockerfile ko cmd lai
+      command: npm start 
+      ports: 
+        - '90:${PORT}' 
+    mongo:
+      container_name: mongo
+      image: mongo
+      ports: 
+        - '27017:27017'
+      networks:
+        - mybirdge  
+      
+networks: 
+  mybirdge:
+    driver: bridge  

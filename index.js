@@ -11,6 +11,9 @@ dotenv.config({path:'./dot.env'})
 if(process.env.NODE_ENV === 'development'){
     console.log('development mode')
 }
+else {
+    console.log('production mode')
+}
 
  
 const server = process.env.PORT;
