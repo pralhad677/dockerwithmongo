@@ -4,8 +4,9 @@ const controller = require('../controller/user')
 
 
 console.log('router')
-router.route('/').post(controller.post)
+router.post('/',controller.getPost)
 router.route('/').get(controller.get)
+router.delete('/',controller.delete)
 
 // router.route('/').post( controller.post).get(controller.findAll)
 // router.route('/:id').delete(controller.delete).get(controller.findOne);

@@ -30,15 +30,23 @@ services:
      
   mongo:
     container_name: mongo
+    environment: 
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
     image: mongo
     ports: 
       - '27017:27017'
     networks:
       - mybirdge  
+    volumes: 
+      - mongo-db:/data/db  
   
 networks: 
   mybirdge:
     driver: bridge
+
+volumes:
+  mongo-db:    
 
 
 
