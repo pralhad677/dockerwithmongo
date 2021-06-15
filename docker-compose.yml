@@ -33,6 +33,13 @@ services:
     environment: 
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
+    #  ya nira siddhai MONGO_IP: mongo esari data patahye ni huna or ${} ko se garera variable pass grna ni paiyo
+      # MONGO_IP: ${MONGO_IP}
+      # MONGO_PORT: ${MONGO_PORT}
+      # MONGO_USER: ${MONGO_USER}
+      # MONGO_PASSWORD: ${MONGO_PASSWORD}
+      
+
     image: mongo
     ports: 
       - '27017:27017'
